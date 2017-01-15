@@ -43,7 +43,7 @@ body {
 #whoami_header, #projects_header, #social_header {
 	text-align: center;
   font-family: 'Permanent Marker', cursive;
-  padding-top: 15px;
+  padding-top: 30px;
 }
 
 a:hover, a:visited, a:link, a:active {
@@ -67,7 +67,7 @@ a:hover {
 
 #projects {
 	background-color: #FFFFFF;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 #projects h3 {
@@ -175,7 +175,7 @@ a:hover {
 .social_icons {
   text-align: center;
   vertical-align: middle;
-  margin-bottom: 10px;
+  margin-bottom: 70px;
 }
 
 .icon {
