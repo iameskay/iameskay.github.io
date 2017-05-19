@@ -6,3 +6,4 @@ TO DO:
 - More Javascript
 - Make background, caption, and playlist responsive.
 - Link up with domain 
+- Look into meta details
