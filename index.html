@@ -2,11 +2,13 @@
 <html lang="en">
   <head>
 
+    <!-- Fvaicon I custom created for the webiste -->
     <link rel="icon" type="image/png" href="images/favicon.png"/>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -36,15 +38,16 @@
           <a class="navbar-brand">Simran Kaur</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#whoami">WHO AM I</a></li>
-        <li><a href="#projects">PROJECTS</a></li>
-        <li><a href="#music">MUSIC</a></li>
-        <li><a href="#socialmedia">FIND ME</a></li>
-      </ul>
-    </div>
-  </nav>
+        <ul class="nav navbar-nav">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#whoami">WHO AM I</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#travel">TRAVEL</a></li>
+          <li><a href="#music">MUSIC</a></li>
+          <li><a href="#socialmedia">FIND ME</a></li>
+        </ul>
+      </div>
+    </nav>
 
   <div id="home">
     <div id="background_caption">
@@ -103,20 +106,64 @@
     </div>
   </div>
 
+
+  <div id="travel">
+  <div id ="map_header">
+    <h2>TRAVEL MAP</h2>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+    <div id="map"></div>
+    <!-- Following contains Google map API implementation, retrieved from https://developers.google.com/maps/documentation/javascript/earthquakes-->
+      <script>
+       var map;
+       function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 2,
+            center: new google.maps.LatLng(2.8,-187.3),
+            mapTypeId: 'terrain'
+          }); 
+
+          // Create a <script> tag and set source.
+          var script = document.createElement('script');
+          // I created a GeoJSON file using https://google-developers.appspot.com/maps/documentation/utils/geojson/ for the data
+          script.src = "locations.js";
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+
+        // Loop through the results array and place a marker for each
+        // set of coordinates.
+        window.geojson_callback = function(results) {
+          for (var i = 0; i < results.features.length; i++) {
+            var coords = results.features[i].geometry.coordinates;
+            var latLng = new google.maps.LatLng(coords[1],coords[0]);
+            var marker = new google.maps.Marker({
+              position: latLng,
+              map: map
+            });
+          }
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8IMu6p0DNe3Jxyaz252ZKE8DLlkW5izs&callback=initMap"></script>
+    </div>
+    </div>
+    </div>
+
+
   <div id="music">
     <div id="music_header">
       <h2>Current Playlist</h2>
-      <div class="container-fluid">
-        <div class="row-fluid">
-          <div class="com-sm-12">
-          <p id="spotify_text">Click the Spotify Player below to listen on Spotify Web Player or Spotify Desktop</p>
-          <!--Spotify Play Button implemented from https://developer.spotify.com/technologies/widgets/spotify-play-button-->
-          <iframe src="https://open.spotify.com/embed?uri=spotify:user:12182778012:playlist:6kIIKj6CYhrYshyoE3CdXY" width="400" height="450" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="col-sm-12">
+           <p id="spotify_text">Click the Spotify Player below to listen on Spotify Web Player or Spotify Desktop</p>
+           <!--Spotify Play Button implemented from https://developer.spotify.com/technologies/widgets/spotify-play-button-->
+           <p id="spotify_player"><iframe src="https://open.spotify.com/embed?uri=spotify:user:12182778012:playlist:6kIIKj6CYhrYshyoE3CdXY" width="400" height="450" align="middle" frameborder="0" allowtransparency="true"></iframe></p>       
         </div>
       </div>
-
-
     </div>
+  </div>
 
   <div id="socialmedia">
     <div id="social_header">
@@ -150,4 +197,3 @@
   </footer>
   </body>
 </html>
-
