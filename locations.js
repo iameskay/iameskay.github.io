@@ -700,6 +700,26 @@ geojson_callback({
           37.29153547292737
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.8663474,
+          20.8778692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.07388509999998,
+          20.6295586
+        ]
+      }
     }
   ]
 });
