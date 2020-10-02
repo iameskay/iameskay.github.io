@@ -720,6 +720,38 @@ geojson_callback({
           20.6295586
         ]
       }
+    },
+    // SF
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.431297,
+          37.773972
+        ]
+      }
+    },
+    // Grand Canyon
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.1129,
+          36.1069
+        ]
+      }
+    },
+    // Hollywood, FL
+    { 
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.1183,
+          25.9919
+        ]
+      }
     }
   ]
-});
